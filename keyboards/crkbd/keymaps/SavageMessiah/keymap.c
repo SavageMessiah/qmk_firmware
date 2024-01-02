@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //NAV
     [1] = LAYOUT_split_3x6_3(                                                             //maybe put some keys for using warpd here?
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_NO,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_TAB,                       KC_DEL,  KC_CUT, KC_COPY, KC_PSTE,  KC_CAPS, KC_NO,
+       KC_NO,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_TAB,                       KC_DEL,  KC_CUT, KC_COPY, KC_PSTE, KC_CAPS,  KC_NO,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        KC_NO,  KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NO,                        KC_NO,   KC_LEFT,KC_DOWN, KC_UP,   KC_RIGHT, KC_NO,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -81,14 +81,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
-    if (!process_achordion(keycode, record)) { return false; }
+    /* if (!process_achordion(keycode, record)) { return false; } */
     if (!process_layer_lock(keycode, record, LLOCK)) { return false; }
 
     return true;
 }
 
-void matrix_scan_user(void) {
-    achordion_task();
-}
+/* void matrix_scan_user(void) { */
+/*     achordion_task(); */
+/* } */
 
 #include "combos.h"
