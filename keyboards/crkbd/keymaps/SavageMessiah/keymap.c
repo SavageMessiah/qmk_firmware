@@ -43,9 +43,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //NAV
     [1] = LAYOUT_split_3x6_3(                                                             //maybe put some keys for using warpd here?
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_NO,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_TAB,                       KC_DEL,  KC_CUT, KC_COPY, KC_PSTE,  KC_NO,   KC_NO,
+       KC_NO,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_TAB,                       KC_DEL,  KC_CUT, KC_COPY, KC_PSTE,  KC_CAPS, KC_NO,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       KC_NO,  KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NO,                        KC_CAPS, KC_LEFT,KC_DOWN, KC_UP,   KC_RIGHT, KC_NO,
+       KC_NO,  KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NO,                        KC_NO,   KC_LEFT,KC_DOWN, KC_UP,   KC_RIGHT, KC_NO,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        KC_NO,  KC_NO,   KC_NO,   KC_NO,   LLOCK,   KC_NO,                        KC_INS,  KC_HOME,KC_PGDN, KC_PGUP, KC_END,   KC_NO,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
