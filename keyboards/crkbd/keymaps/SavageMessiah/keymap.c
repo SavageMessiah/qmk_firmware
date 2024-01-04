@@ -60,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        KC_NO, KC_PIPE, KC_LBRC, KC_LCBR, KC_LPRN,  KC_LT,                        KC_GT,  KC_RPRN, KC_RCBR, KC_RBRC, KC_BSLS,  KC_NO,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       KC_NO,  KC_NO,   KC_GRV, KC_PLUS, KC_ASTR,  KC_SPC,                       CW_TOGG, KC_AMPR, KC_CIRC, KC_PGUP,  KC_NO,   KC_NO,
+       KC_NO,  KC_NO,   KC_GRV, KC_PLUS, KC_ASTR,  KC_SPC,                       CW_TOGG, KC_AMPR, KC_CIRC, KC_EQL,  KC_NO,   KC_NO,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_NO,  _______,  KC_NO,     KC_LALT, KC_LCTL, KC_BSPC
                                       //`--------------------------'  `--------------------------'
@@ -81,14 +81,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
-    if (!process_achordion(keycode, record)) { return false; }
+    /* if (!process_achordion(keycode, record)) { return false; } */
     if (!process_layer_lock(keycode, record, LLOCK)) { return false; }
 
     return true;
 }
 
-void matrix_scan_user(void) {
-    achordion_task();
-}
+/* void matrix_scan_user(void) { */
+/*     achordion_task(); */
+/* } */
 
 #include "combos.h"
