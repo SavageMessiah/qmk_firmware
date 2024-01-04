@@ -31,11 +31,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       KC_NO,    KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                         KC_J,    KC_L,    KC_U,    KC_Y,   KC_QUOT,  KC_NO,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_NO,  LGUI_T(KC_A), LALT_T(KC_R), LCTL_T(KC_S), LSFT_T(KC_T), KC_G,       KC_M,  RSFT_T(KC_N), RCTL_T(KC_E), LALT_T(KC_I), RGUI_T(KC_O), KC_NO,
+      KC_NO,  LGUI_T(KC_A), LALT_T(KC_R), LCTL_T(KC_S), KC_T, KC_G,    KC_M,   KC_N, RCTL_T(KC_E), LALT_T(KC_I), RGUI_T(KC_O), KC_NO,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_NO,    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H,  KC_COMM,  KC_DOT,  KC_SLSH,  KC_NO,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                 CW_TOGG, KC_SPC,  LT(1, KC_TAB),     LT(2, KC_ENT), KC_BSPC, LT(3, KC_ESC)
+                                 KC_ESC, LT(2,KC_SPC),  LT(1, KC_TAB),     LT(3, KC_ENT), OSM(MOD_LSFT), KC_BSPC
                                       //`--------------------------'  `--------------------------'
 
   ),
@@ -43,52 +43,52 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //NAV
     [1] = LAYOUT_split_3x6_3(                                                             //maybe put some keys for using warpd here?
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_NO,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_TAB,                       KC_DEL,  KC_CUT, KC_COPY, KC_PSTE, KC_CAPS,  KC_NO,
+       KC_NO,  KC_NO, KC_KB_VOLUME_UP, KC_KB_MUTE, KC_KB_VOLUME_DOWN, KC_TAB,    KC_DEL, KC_PSCR,  KC_NO,   KC_NO,  KC_CAPS,  KC_NO,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       KC_NO,  KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NO,                        KC_NO,   KC_LEFT,KC_DOWN, KC_UP,   KC_RIGHT, KC_NO,
+       KC_NO,  KC_LGUI, KC_LALT, KC_LCTL, KC_NO,   KC_NO,                        KC_NO,   KC_LEFT,KC_DOWN, KC_UP,   KC_RIGHT, KC_NO,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        KC_NO,  KC_NO,   KC_NO,   KC_NO,   LLOCK,   KC_NO,                        KC_INS,  KC_HOME,KC_PGDN, KC_PGUP, KC_END,   KC_NO,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_NO,  KC_NO,   _______,     KC_ENT, KC_BSPC, KC_NO
+                                          KC_NO,  KC_NO,   _______,     KC_ENT, KC_LSFT, KC_BSPC
                                       //`--------------------------'  `--------------------------'
   ),
 
-    //NUMSYM
-    [2] = LAYOUT_split_3x6_3(
+    //SYM
+    [2] = LAYOUT_split_3x6_3(                                                             //maybe put some keys for using warpd here?
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      KC_NO,  KC_LBRC, KC_7,     KC_8,    KC_9,   KC_RBRC,                      KC_NO,   KC_BSPC,  KC_NO,   KC_NO,   KC_NO,  KC_NO,
+       KC_NO,  KC_NO,  KC_TILD, KC_EXLM,  KC_AT,   KC_NO,                        KC_NO,  KC_HASH,  KC_DLR, KC_PERC,  KC_NO,   KC_NO,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_NO,  KC_SCLN, KC_4,     KC_5,    KC_6,   KC_EQL,                       KC_NO,   KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, KC_NO,
+       KC_NO, KC_PIPE, KC_LBRC, KC_LCBR, KC_LPRN,  KC_LT,                        KC_GT,  KC_RPRN, KC_RCBR, KC_RBRC, KC_BSLS,  KC_NO,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_NO,  KC_GRV,  KC_1,     KC_2,    KC_3,   KC_BSLS,                      KC_NO,   LLOCK,   _______, _______, _______, KC_NO,
+       KC_NO,  KC_NO,   KC_GRV, KC_PLUS, KC_ASTR,  KC_SPC,                       CW_TOGG, KC_AMPR, KC_CIRC, KC_PGUP,  KC_NO,   KC_NO,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                         KC_0,     KC_SPC, KC_MINUS,    _______,  KC_NO, KC_NO
+                                          KC_NO,  _______,  KC_NO,     KC_LALT, KC_LCTL, KC_BSPC
                                       //`--------------------------'  `--------------------------'
   ),
 
-    //FUNCFLAPS
+    //NUMFUNC
     [3] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      KC_NO,   KC_F12,  KC_F7,   KC_F8,   KC_F9,  KC_KB_VOLUME_UP,                KC_NO, KC_PSCR, KC_BRK,  KC_SCRL, KC_APP,  KC_NO,
+      KC_NO,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                        KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_NO,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_NO,   KC_F11,  KC_F4,   KC_F5,   KC_F6,  KC_KB_MUTE,                     KC_NO, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, KC_NO,
+      KC_NO,   KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_NO,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_NO,   KC_F10,  KC_F1,   KC_F2,   KC_F3,  KC_KB_VOLUME_DOWN,              KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+      KC_NO,  KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,  KC_NO,                        KC_NO,  KC_RSFT, KC_RCTL, KC_LALT, KC_RGUI,  KC_NO,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                MEH(KC_ESC), MEH(KC_SPC), MEH(KC_TAB),  KC_NO,   KC_NO,   _______
+                                         KC_DOT, KC_SPC, KC_TAB,       _______,  KC_NO, KC_NO
                                       //`--------------------------'  `--------------------------'
-  )
+  ),
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
-    /* if (!process_achordion(keycode, record)) { return false; } */
+    if (!process_achordion(keycode, record)) { return false; }
     if (!process_layer_lock(keycode, record, LLOCK)) { return false; }
 
     return true;
 }
 
-/* void matrix_scan_user(void) { */
-/*     achordion_task(); */
-/* } */
+void matrix_scan_user(void) {
+    achordion_task();
+}
 
 #include "combos.h"
