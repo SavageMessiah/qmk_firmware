@@ -1,13 +1,14 @@
 #!/bin/ruby
 left = [
-  [:SEMI, ['LCTL_T(KC_S)', :KC_T], :KC_SCLN],
-  [:DASH, %i[KC_C KC_D], :KC_MINUS]
+  [:SEMI, %i[KC_F KC_P], :KC_SCLN],
+  [:DASH, %i[KC_C KC_D], :KC_MINUS],
+  [:LESC, ['LSFT_T(KC_T)', :KC_F], :KC_ESC]
 ]
 
 right = [
-  [:COLON, [:KC_N, 'RCTL_T(KC_E)'], :KC_COLN],
+  [:COLON, %i[KC_L KC_U], :KC_COLN],
   [:UNDER, %i[KC_H KC_COMM], :KC_UNDS],
-  [:EQ, %i[KC_L KC_U], :KC_EQL]
+  [:RESC, ['RSFT_T(KC_N)', :KC_U], :KC_ESC]
 ]
 
 combos = left + right
