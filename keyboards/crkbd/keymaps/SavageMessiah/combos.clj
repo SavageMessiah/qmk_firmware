@@ -14,40 +14,39 @@
     (get keys kw default)))
 
 (def combos
-  {[:q :w] :tilde
+  {[:w :p] :tilde
    [:w :f] :exlm
    [:f :p] :scln
-   [:p :b] :at
+   [:s :p] :at
 
-   [:z :x] :grv
    [:x :c] :plus
    [:c :d] :minus
-   [:d :v] :astr
+   [:x :d] :astr
+   [:s :d] :eql
 
-   [:t :f] :esc
+   [:t :f] :bsls
 
-   [:q :a] :pipe
    [:w :r] :lbrc
    [:f :s] :lcbr
    [:p :t] :lprn
    [:b :g] :lt
 
-   [:j :l] :hash
+   [:l :y] :hash
    [:l :u] :coln
    [:u :y] :dlr
-   [:y :quot] :perc
+   [:e :l] :perc
 
-   [:k :h] :ampr
+   [:e :h] :grv
+   [:h :dot] :ampr
    [:h :comm] :unds
    [:comm :dot] :circ
-   [:dot :slsh] :eql
-   [:n :u] :esc
+
+   [:n :u] :pipe
 
    [:j :m] :gt
    [:l :n] :rprn
    [:u :e] :rcbr
-   [:y :i] :rbrc
-   [:quot :o] :bsls})
+   [:y :i] :rbrc})
 
 (defn combos->header-lines [combos]
   (let [with-names (map-indexed (fn [idx combo]
