@@ -46,7 +46,18 @@
    [:j :m] :gt
    [:l :n] :rprn
    [:u :e] :rcbr
-   [:y :i] :rbrc})
+   [:y :i] :rbrc
+
+   [:a :z] :1
+   [:r :x] :2
+   [:s :c] :3
+   [:t :d] :4
+   [:g :v] :5
+   [:m :k] :6
+   [:n :h] :7
+   [:e :comm] :8
+   [:i :dot] :9
+   [:o :slsh] :0})
 
 (defn combos->header-lines [combos]
   (let [with-names (map-indexed (fn [idx combo]
