@@ -35,7 +35,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_NO,    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H,  KC_COMM,  KC_DOT,  KC_SLSH,  KC_NO,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                 KC_ESC, LT(1,KC_SPC),  LT(2, KC_TAB),  KC_ENT, LT(3, KC_BSPC), CW_TOGG
+                                        KC_ESC, LT(1,KC_SPC), KC_TAB, KC_ENT, LT(2, KC_BSPC), CW_TOGG
                                       //`--------------------------'  `--------------------------'
 
   ),
@@ -53,21 +53,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       //`--------------------------'  `--------------------------'
   ),
 
-    //SYM
-    [2] = LAYOUT_split_3x6_3(                                                             //maybe put some keys for using warpd here?
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_NO,  KC_NO,  KC_TILD, KC_EXLM,  KC_AT,   KC_NO,                        KC_NO,  KC_HASH,  KC_DLR, KC_PERC,  KC_NO,   KC_NO,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       KC_NO, KC_PIPE, KC_LBRC, KC_LCBR, KC_LPRN,  KC_LT,                        KC_GT,  KC_RPRN, KC_RCBR, KC_RBRC, KC_BSLS,  KC_NO,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       KC_NO,  KC_NO,   KC_GRV, KC_PLUS, KC_ASTR,  KC_TAB,                       KC_NO,  KC_AMPR, KC_CIRC,  KC_EQL,  KC_NO,   KC_NO,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_NO,   KC_NO,  _______,    KC_LALT, KC_LCTL, KC_LGUI
-                                      //`--------------------------'  `--------------------------'
-  ),
-
     //NUMFUNC
-    [3] = LAYOUT_split_3x6_3(
+    [2] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       KC_NO,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                        KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_NO,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -81,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
-    //if (!process_achordion(keycode, record)) { return false; }
+    if (!process_achordion(keycode, record)) { return false; }
     if (!process_layer_lock(keycode, record, LLOCK)) { return false; }
 
     return true;
@@ -92,17 +79,20 @@ bool achordion_chord(uint16_t tap_hold_keycode,
                      uint16_t other_keycode,
                      keyrecord_t* other_record) {
     switch (tap_hold_keycode) {
-        case LT(3, KC_BSPC):
+        case LT(2, KC_BSPC):
         case LT(1, KC_SPC):
-        case LT(2, KC_TAB):
             return true;
+    }
+
+    if (!IS_KEYEVENT(other_record->event)) {
+        return true;
     }
 
     return achordion_opposite_hands(tap_hold_record, other_record);
 }
 
-// void matrix_scan_user(void) {
-//     achordion_task();
-// }
+void matrix_scan_user(void) {
+    achordion_task();
+}
 
 #include "combos.h"
